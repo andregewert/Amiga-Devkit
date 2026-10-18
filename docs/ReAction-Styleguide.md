@@ -280,7 +280,8 @@ muss einen Rückfall haben oder gekennzeichnet sein.
 - **Vor jedem Commit** `make` (inkl. Zeichensatzprüfung) und `make check`.
 - **Commit und Push nur auf Aufforderung.** Commit-Nachrichten englisch, mit Begründung, was und
   warum.
-- **Versionen:** `$VER` bei Änderungen erhöhen. Die Aminet-Readme (ISO-8859-1, höchstens 78
+- **Versionen:** `$VER` nur zu einem offiziellen Release erhöhen, nicht bei jeder Änderung
+  (siehe `Amiga-Regeln.md`). Die Aminet-Readme (ISO-8859-1, höchstens 78
   Zeichen pro Zeile) bekommt die Versionsgeschichte englisch und deutsch.
 - **Dokumentation:** README englisch und deutsch, gleiche Inhalte. Neue Funktionen,
   Einstellungen und Tooltypes werden dort ergänzt. Projektnotizen für die KI (z. B.

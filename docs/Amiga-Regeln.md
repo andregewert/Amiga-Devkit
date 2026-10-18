@@ -64,14 +64,18 @@ Für Programme mit ReAction-Oberfläche gilt zusätzlich `amiga-devkit/docs/ReAc
 
 ## Versionen und Aminet-Paket
 
-- Bei Änderungen `$VER` (bzw. Revision und Datum der Bibliothek) erhöhen, damit sich Builds
-  unterscheiden lassen und der Installer alte Versionen ersetzt.
+- Versionsnummern (`$VER`, Version, Revision und Datum einer Bibliothek) werden nur zu einem
+  offiziellen Release erhöht, bewusst und auf Ansage des Benutzers, nicht bei jeder Änderung
+  oder jedem Build. Das Release bekommt eine neue Nummer, damit der Installer alte Versionen
+  ersetzt. Zwischen zwei Releases bleibt die Nummer stehen; Entwicklungs-Builds lassen sich
+  am Build-Verzeichnis bzw. am Datum der Datei unterscheiden, nicht an der Version.
 - Datumsangaben (`$VER`, `$Id`, Bibliotheksdatum) immer `TT.MM.JJJJ`, Tag und Monat zweistellig
   mit führender Null, z. B. `01.10.2026`.
 - `package/<Name>.readme` ist die Aminet-Readme: ISO-8859-1, Zeilen höchstens 78 Zeichen.
   Für Anwender sichtbare Änderungen knapp englisch (`History`) **und** deutsch
-  (`Versionsgeschichte`) eintragen und `Version:` anpassen. Kein `Replaces:`, solange
-  Archivname und Aminet-Verzeichnis gleich bleiben.
+  (`Versionsgeschichte`) unter der kommenden Version eintragen; `Version:` wird mit dem
+  Release angepasst. Kein `Replaces:`, solange Archivname und Aminet-Verzeichnis gleich
+  bleiben.
 - `make dist` baut `dist/<Name>.lha` mit `tools/mkdist.py`. Die Quellen im Archiv müssen ohne
   Git bauen (Submodule-Inhalte und Versionen mitkopieren).
 - Neue Funktionen in `README.md` **und** `README.de.md` dokumentieren.
