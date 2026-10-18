@@ -388,17 +388,45 @@ class Box:
             c.put(self.x0 + u, self.ytop(u) + t, colour)
 
 
+class Rhombus:
+    """ the flat base of the NewIcons package (its building block
+        "platform"): (x0, y0) is the left corner, a single column of two
+        rows; then the staircase of pixel pairs, a steps up to the top
+        corner and b steps down to the bottom corner; the right corner is a
+        single column again. 2 * (a + b) columns wide.                    """
+    def __init__(self, x0, y0, a, b):
+        self.x0, self.y0, self.a, self.b = x0, y0, a, b
+        self.w = 2 * (a + b)
+
+    def top(self, u):
+        k = (u + 1) // 2
+        return self.y0 - k if k <= self.a else self.y0 - self.a + (k - self.a)
+
+    def bottom(self, u):
+        k = (u + 1) // 2
+        return self.y0 + 1 + k if k <= self.b else self.y0 + 1 + self.b - (k - self.b)
+
+    def draw(self, c, fill, outline=BLACK):
+        for u in range(self.w):
+            yt, yb = self.top(u), self.bottom(u)
+            for y in range(yt, yb + 1):
+                edge = y in (yt, yb) or u in (0, self.w - 1)
+                c.put(self.x0 + u, y, outline if edge else tone(fill, self.x0 + u, y))
+
+
 def platform(c, x0, y0, a, b, box, colour=N_GREEN, shadow=2):
-    """ the flat base under a box, with the box's shadow along its bottom """
-    p = Box(x0, y0, a, b, 0)
-    p.draw(c, colour, colour, colour)
+    """ the flat base under a box, left corner (x0, y0), with the box's
+        shadow along its bottom                                           """
+    p = Rhombus(x0, y0, a, b)
+    p.draw(c, colour)
     for u in range(box.w):
         x = box.x0 + u
         pu = x - p.x0
         if 0 < pu < p.w - 1:
             for y in range(box.bottom(u) + 1, box.bottom(u) + 1 + shadow):
-                if p.ytop(pu) < y <= p.ymid(pu):
+                if p.top(pu) < y < p.bottom(pu):
                     c.put(x, y, N_G51)
+    return p
 
 
 def n_drawer(c, sel):
