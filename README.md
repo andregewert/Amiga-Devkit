@@ -11,11 +11,13 @@ used as a git submodule by
 | `tools/catcomp.py` | locale.library catalogs: `.cd`/`.ct` (CatComp/FlexCat format) to `strings.h` and `.catalog` in the format of the OS 3.2 catalogs. |
 | `tools/distlib.py` | Building blocks for an Aminet archive: copying, README to ISO-8859-1, icons for every file plus complete `Icons/<Style>/` sets, packing with lha. |
 | `make/charcheck.mk` | `make charcheck`: refuses UTF-8 in files that must be ISO-8859-1. |
+| `make/docs.mk`, `doxygen/Doxyfile.base` | HTML documentation from the code's Javadoc-style comments with Doxygen; the targets fail on any documentation warning. |
 | `claude/settings.json` | Claude Code hook running `make charcheck` after every edit (copy to `.claude/`). |
 | `docs/Amiga-Regeln.md` | Shared notes for AI assistants (German), imported by the projects' `CLAUDE.md`. |
 | `docs/ReAction-Styleguide.md` | Style guide for ReAction applications (German). |
+| `docs/Dokumentation.md` | Rules for documentation comments (Doxygen, Javadoc style) instead of hand-written Autodocs (German). |
 
-Python 3 only, no other dependencies.
+Python 3 only, no other dependencies (Doxygen for the documentation targets).
 
 ## Using it in a project
 

@@ -1,0 +1,53 @@
+# Doxyfile.base - shared Doxygen configuration of the Amiga projects (amiga-devkit)
+#
+# make/docs.mk appends the project's values (name, version, input, output
+# directory) and runs "doxygen -". The rules for the comments are in
+# docs/Dokumentation.md.
+
+# The sources are ISO-8859-1 C.
+INPUT_ENCODING         = ISO-8859-1
+OUTPUT_LANGUAGE        = English
+OPTIMIZE_OUTPUT_FOR_C  = YES
+FILE_PATTERNS          = *.c *.h
+RECURSIVE              = NO
+FULL_PATH_NAMES        = YES
+
+# Javadoc style: /** ... */ with @brief, @param, @return.
+JAVADOC_AUTOBRIEF      = NO
+QT_AUTOBRIEF           = NO
+MARKDOWN_SUPPORT       = YES
+TAB_SIZE               = 4
+
+# Only what is documented, static functions included (they are documented
+# as well); every missing or wrong comment is a warning.
+EXTRACT_ALL            = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+HIDE_UNDOC_MEMBERS     = NO
+TYPEDEF_HIDES_STRUCT   = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_IF_INCOMPLETE_DOC = YES
+WARN_NO_PARAMDOC       = YES
+WARN_AS_ERROR          = NO
+WARN_FORMAT            = "$file:$line: $text"
+QUIET                  = YES
+
+# The preprocessor sees the AmigaOS headers only as far as they are found;
+# the documentation does not need them.
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = NO
+SEARCH_INCLUDES        = NO
+
+# HTML only, without graphs and without the sources themselves.
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_TREEVIEW      = YES
+HTML_COLORSTYLE        = LIGHT
+SOURCE_BROWSER         = NO
+VERBATIM_HEADERS       = NO
+HAVE_DOT               = NO
+CLASS_GRAPH            = NO
+SHOW_INCLUDE_FILES     = YES
+SORT_MEMBER_DOCS       = NO

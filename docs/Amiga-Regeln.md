@@ -21,6 +21,13 @@ Für Programme mit ReAction-Oberfläche gilt zusätzlich `amiga-devkit/docs/ReAc
 - `claude/settings.json`: Vorlage für den Hook, der nach jedem Write/Edit `make charcheck`
   ausführt; gehört als `.claude/settings.json` ins Projekt.
 
+## Dokumentation
+
+- Alle Dateien, Funktionen (auch `static`), Typen und Schnittstellen-Makros haben
+  Doxygen-Kommentare im Javadoc-Stil; öffentliche Klassen und Bibliotheken werden in ihrem
+  Header dokumentiert statt in Autodocs. Regeln und Beispiele: `docs/Dokumentation.md`
+  (`@amiga-devkit/docs/Dokumentation.md`). `make docs` muss ohne Warnung durchlaufen.
+
 ## Zeichenkodierung: ISO-8859-1
 
 - Alles, was auf den Amiga geht oder von Amiga-Werkzeugen gelesen wird (Quellen, Header,
