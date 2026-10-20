@@ -35,10 +35,16 @@ WARN_FORMAT            = "$file:$line: $text"
 QUIET                  = YES
 
 # The preprocessor sees the AmigaOS headers only as far as they are found;
-# the documentation does not need them.
+# the documentation does not need them. The compilers' register and
+# calling-convention keywords (bebbo's gcc: __asm("a0"), SAS/C and vbcc
+# style: __reg, __saveds ...) are removed, so parameters stay readable.
 ENABLE_PREPROCESSING   = YES
-MACRO_EXPANSION        = NO
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
 SEARCH_INCLUDES        = NO
+PREDEFINED             = "__asm(x)=" "__asm__(x)=" "__reg(x)=" "__attribute__(x)=" \
+                         __saveds= __stdargs= __regargs= __interrupt= __far= __near= \
+                         __chip= __aligned= ASM= REG(r)= SAVEDS=
 
 # HTML only, without graphs and without the sources themselves.
 GENERATE_HTML          = YES
