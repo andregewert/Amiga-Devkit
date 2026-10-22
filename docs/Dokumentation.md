@@ -3,6 +3,29 @@
 Gilt für alle Projekte mit `amiga-devkit`. Die `CLAUDE.md` des Projekts lädt diese Datei mit
 `@amiga-devkit/docs/Dokumentation.md`.
 
+## Wohin welches Wissen gehört
+
+Die README ist für Menschen, das technische Wissen steht dort, wo es beim Arbeiten am Code
+gelesen wird:
+
+| Ort | Für wen | Inhalt |
+|---|---|---|
+| `README.md`, `README.de.md` | Anwender, neugierige Entwickler | was das Programm kann (Stichpunkte), Voraussetzungen als knappe Liste ohne Begründungen, Start, Optionen und Tooltypes (Tabelle), Bauen in wenigen Zeilen, Credits und Lizenz |
+| Code-Kommentare (Doxygen) | wer das Modul ändert | was nur ein Modul betrifft: sein Verhalten, Rückfallwege, Fallen der OS-Klassen, die es benutzt (im `@file`-Kopf oder an der Funktion) |
+| `TECHNICAL.md` | die KI und Entwickler | was mehrere Module übergreift: Zusammenspiel, Abläufe, Erkenntnisse über OS-Klassen, die mehrere Stellen betreffen; nach Themen gegliedert |
+| `AGENTS.md` / `CLAUDE.md` | die KI (wird jede Sitzung geladen) | Aufbau, Konventionen, verbindliche Regeln, Verweise auf die Abschnitte von `TECHNICAL.md` („vor Änderungen an X lesen“) |
+
+- **Die README bleibt kurz.** Technische Einzelheiten (wann etwas neu gezeichnet wird, welche
+  Klassenversion was kann, Abläufe im Code) gehören nicht hinein. Neue Funktionen bekommen dort
+  einen Stichpunkt, Optionen und Tooltypes einen Tabelleneintrag.
+- **Erst in den Code, dann in `TECHNICAL.md`:** Was sich einem Modul zuordnen lässt, steht in
+  dessen Kommentar, denn der wird beim Ändern sicher mitgelesen. `TECHNICAL.md` hält nur, was
+  dort keinen Platz hat.
+- **`TECHNICAL.md` wird nicht mit `@` geladen**, damit nicht jede Sitzung den ganzen Text
+  mitschleppt. `AGENTS.md` (oder `CLAUDE.md`) verweist auf die Abschnitte, die vor bestimmten
+  Änderungen zu lesen sind.
+- **Sprache:** README englisch und deutsch, `TECHNICAL.md` und `AGENTS.md` englisch (UTF-8).
+
 ## Grundsätze
 
 - **Eine Quelle:** Die Dokumentation steht als Kommentar im Code, im Javadoc-Stil, den Doxygen

@@ -269,7 +269,8 @@ muss einen Rückfall haben oder gekennzeichnet sein.
 
 - **Wenn die Autodocs schweigen:** das Verhalten der OS-3.2-Klassen im Maschinencode nachsehen
   (Klassen von der OS-3.2-CD oder, nur lesend, aus dem Festplatten-Image des Anwenders). Das
-  Ergebnis kommt in Code-Kommentar und Projektnotizen.
+  Ergebnis kommt in den Code-Kommentar, und wenn es mehrere Module betrifft, in
+  `TECHNICAL.md`.
 - **Ungetestete Annahmen** über ReAction-Klassen im Bericht und in der Commit-Nachricht
   kennzeichnen.
 - **GUI-Tests macht der Anwender** im Emulator. Den Emulator nie selbst mit der Konfiguration
@@ -283,8 +284,9 @@ muss einen Rückfall haben oder gekennzeichnet sein.
 - **Versionen:** `$VER` nur zu einem offiziellen Release erhöhen, nicht bei jeder Änderung
   (siehe `Amiga-Regeln.md`). Die Aminet-Readme (ISO-8859-1, höchstens 78
   Zeichen pro Zeile) bekommt die Versionsgeschichte englisch und deutsch.
-- **Dokumentation:** README englisch und deutsch, gleiche Inhalte. Neue Funktionen,
-  Einstellungen und Tooltypes werden dort ergänzt. Projektnotizen für die KI (z. B.
-  `CLAUDE.md`) halten Aufbau, Konventionen und gewonnene Erkenntnisse fest.
+- **Dokumentation:** README englisch und deutsch, gleiche Inhalte, für Anwender und kurz:
+  Neue Funktionen, Einstellungen und Tooltypes werden dort knapp ergänzt. Technische
+  Einzelheiten stehen im Code-Kommentar oder in `TECHNICAL.md`; `AGENTS.md`/`CLAUDE.md`
+  halten Aufbau und Konventionen fest und verweisen darauf (siehe `Dokumentation.md`).
 - **Code-Stil:** wie der umgebende Code. Kommentare englisch und knapp, sie erklären das Warum.
   In C-Kommentaren möglichst ASCII.

@@ -27,13 +27,17 @@ Für Programme mit ReAction-Oberfläche gilt zusätzlich `amiga-devkit/docs/ReAc
   Doxygen-Kommentare im Javadoc-Stil; öffentliche Klassen und Bibliotheken werden in ihrem
   Header dokumentiert statt in Autodocs. Regeln und Beispiele: `docs/Dokumentation.md`
   (`@amiga-devkit/docs/Dokumentation.md`). `make docs` muss ohne Warnung durchlaufen.
+- Die README ist für Anwender und bleibt kurz; technisches Wissen steht im Code-Kommentar oder,
+  wenn es mehrere Module betrifft, in `TECHNICAL.md` (siehe „Wohin welches Wissen gehört“ in
+  `docs/Dokumentation.md`).
 
 ## Zeichenkodierung: ISO-8859-1
 
 - Alles, was auf den Amiga geht oder von Amiga-Werkzeugen gelesen wird (Quellen, Header,
   Kataloge, Testdateien, `package/`, `LICENSE`, `Makefile`), ist **ISO-8859-1**. Niemals UTF-8
   in diese Dateien schreiben. Welche Verzeichnisse das sind, steht in `LATIN1` im `Makefile`.
-- UTF-8 bleiben: `README*.md`, `CLAUDE.md`, `docs/*.md`, `tools/*.py`, `.claude/`.
+- UTF-8 bleiben: `README*.md`, `CLAUDE.md`, `AGENTS.md`, `TECHNICAL.md`, `docs/*.md`,
+  `tools/*.py`, `.claude/`.
 - Neue Dateien dort ebenfalls in ISO-8859-1 anlegen. Wenn Umlaute nötig sind, die Datei mit
   Python schreiben (`open(p, 'w', encoding='latin-1')`) oder hinterher mit
   `iconv -f UTF-8 -t ISO-8859-1` umwandeln. In HTML-Dateien Entities (`&auml;` …) bevorzugen.
@@ -85,7 +89,8 @@ Für Programme mit ReAction-Oberfläche gilt zusätzlich `amiga-devkit/docs/ReAc
   bleiben.
 - `make dist` baut `dist/<Name>.lha` mit `tools/mkdist.py`. Die Quellen im Archiv müssen ohne
   Git bauen (Submodule-Inhalte und Versionen mitkopieren).
-- Neue Funktionen in `README.md` **und** `README.de.md` dokumentieren.
+- Neue Funktionen in `README.md` **und** `README.de.md` knapp für Anwender dokumentieren
+  (Stichpunkt, Tooltype-Tabelle); Einzelheiten in Code-Kommentar oder `TECHNICAL.md`.
 
 ## Icons
 
