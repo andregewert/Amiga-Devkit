@@ -12,6 +12,7 @@ used as a git submodule by
 | `tools/distlib.py` | Building blocks for an Aminet archive: copying, README to ISO-8859-1, icons for every file plus complete `Icons/<Style>/` sets, packing with lha. |
 | `make/charcheck.mk` | `make charcheck`: refuses UTF-8 in files that must be ISO-8859-1. |
 | `make/docs.mk`, `doxygen/Doxyfile.base` | HTML documentation from the code's Javadoc-style comments with Doxygen; the targets fail on any documentation warning. |
+| `tools/doxy2guide.py` | AmigaGuide reference in Autodoc layout from Doxygen's XML of the same comments (`DOXYGEN_GUIDE` in `make/docs.mk`). |
 | `claude/settings.json` | Claude Code hook running `make charcheck` after every edit (copy to `.claude/`). |
 | `docs/Amiga-Regeln.md` | Shared notes for AI assistants (German), imported by the projects' `CLAUDE.md`. |
 | `docs/ReAction-Styleguide.md` | Style guide for ReAction applications (German). |

@@ -144,7 +144,19 @@ Der Header ersetzt die Autodocs. Die Gliederung entspricht ihren gewohnten Absch
   $(eval $(call DOXYGEN_DOCS,docs,TinyDev,1.0,src include,build/docs))
   ```
 
-- **Ausgabe:** Das HTML landet unter `build/`, nie im Repository. Für ein Aminet-Paket kopiert
-  `make dist` das HTML der Klassen ins Archiv (z. B. `Docs/<klasse>/`).
+- **AmigaGuide:** Amiga-Browser (IBrowse, AWeb) können Doxygens HTML nicht darstellen. Für
+  Anwender auf dem Amiga erzeugt `DOXYGEN_GUIDE` aus denselben Kommentaren eine
+  AmigaGuide-Referenz (Doxygen-XML, dann `tools/doxy2guide.py`): eine Datei in ISO-8859-1 im
+  Aufbau der Autodocs (NAME, SYNOPSIS, FUNCTION, INPUTS, RESULT, NOTES, SEE ALSO), ein Knoten
+  je `@name`-Gruppe, Querverweise (`#NAME`, `Funktion()`) als Links, dazu ein Index. Mitglieder
+  mit nur einer Kurzform (`/**< ... */`) stehen in der Liste ihrer Gruppe, alle anderen
+  bekommen einen eigenen Knoten. Die Version landet so, wie angegeben, in `$VER`:
+
+  ```make
+  $(eval $(call DOXYGEN_GUIDE,guide,my.library,1.0 (01.10.2026),include/libraries/my.h include/clib/my_protos.h,build/my.library.guide))
+  ```
+
+- **Ausgabe:** HTML und Guide landen unter `build/`, nie im Repository. Für ein Aminet-Paket
+  kopiert `make dist` die AmigaGuide-Referenz ins Archiv (z. B. `Developer/<name>.guide`).
 - **Installation:** Doxygen läuft auf dem Host (`apt install doxygen`, ab Version 1.9.5 für
   `WARN_IF_INCOMPLETE_DOC`).
